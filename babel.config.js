@@ -12,6 +12,7 @@ module.exports = {
           '@components': './src/components',
           '@navigators': './src/navigators',
           '@wrappers': './src/components/wrappers',
+          '@utils': './src/utils',
         },
       },
     ],
