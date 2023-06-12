@@ -1,8 +1,8 @@
 import baseService from './baseService';
 
-export const getUsers = async () => {
-  const res = await baseService.get('?page=3&results=10');
-  return res.data?.results;
+export const getUsers = async (page: number) => {
+  const res = await baseService.get(`?page=${page}&results=15`);
+  return res.data;
 };
 
 export const getUserById = async (id: string) => {
