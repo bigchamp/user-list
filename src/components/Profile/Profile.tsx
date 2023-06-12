@@ -44,8 +44,9 @@ export const Profile = ({user}: any) => {
         </View>
       </View>
       <View style={styles.tabView}>
-        {TABS.map(item => (
+        {TABS.map((item, index) => (
           <Text
+            key={index}
             style={[styles.tab, activeTab === item.id && styles.activeTab]}
             onPress={() => setActiveTab(item.id)}>
             {item.label}
