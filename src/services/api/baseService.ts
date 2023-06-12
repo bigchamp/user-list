@@ -6,7 +6,7 @@ const baseService = axios.create({
   headers: {
     accept: 'application/json',
   },
-  timeout: 10000,
+  timeout: 3000,
 });
 
 export default baseService;
