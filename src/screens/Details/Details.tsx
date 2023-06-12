@@ -16,12 +16,9 @@ const DetailsScreen: FC<
 
   const {isLoading, data: user} = useUser(uuid);
 
-  console.log('isLoading', isLoading);
   if (isLoading) {
     return <ActivityIndicator />;
   }
-
-  console.log('user', user);
 
   if (!user) {
     return null;
