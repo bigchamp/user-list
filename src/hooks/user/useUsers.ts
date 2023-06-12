@@ -1,6 +1,14 @@
 import {getUsers} from '@services/api/user';
-import {useQuery} from '@tanstack/react-query';
+import {useInfiniteQuery} from '@tanstack/react-query';
 
 export default function useUsers() {
-  return useQuery(['getUsers'], getUsers);
+  return useInfiniteQuery(
+    ['getUsers'],
+    ({pageParam = 1}) => {
+      return getUsers(pageParam);
+    },
+    {
+      getNextPageParam: lastPage => lastPage.info.page + 1,
+    },
+  );
 }
