@@ -38,9 +38,9 @@ export const Profile = ({user}: any) => {
           <Text style={styles.title}>
             {name.first} {name.last}
           </Text>
-          <TextGroup label="Email" text={email} />
-          <TextGroup label="Phone" text={phone} />
-          <TextGroup label="Country" text={location.country} />
+          <TextGroup key="email" label="Email" text={email} />
+          <TextGroup key="phone" label="Phone" text={phone} />
+          <TextGroup key="country" label="Country" text={location.country} />
         </View>
       </View>
       <View style={styles.tabView}>
@@ -54,8 +54,9 @@ export const Profile = ({user}: any) => {
       </View>
       {activeTab === 0 && (
         <View style={styles.socials}>
-          <TextGroup label="Date of birth" text={dateOfBirth} />
+          <TextGroup key="dob" label="Date of birth" text={dateOfBirth} />
           <TextGroup
+            key="address"
             label="Address"
             text={`${location.street.number}, ${location.street.name}, ${location.city}`}
           />
@@ -63,10 +64,8 @@ export const Profile = ({user}: any) => {
       )}
       {activeTab === 1 && (
         <View style={styles.statsGroup}>
-          <StatsGroup number="94" label="Projects done" />
-          <StatsGroup number="5" label="Teams" />
-          <StatsGroup number="92%" label="Success rate" />
-          <StatsGroup number="243" label="Client reports" />
+          <StatsGroup key="project" number="94" label="Projects done" />
+          <StatsGroup key="teams" number="5" label="Teams" />
         </View>
       )}
       {activeTab === 2 && (
