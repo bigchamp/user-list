@@ -3,6 +3,8 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   item: {
     width: '100%',
+    // for better performance of flatlist
+    height: 73,
     paddingVertical: 12,
     flexDirection: 'row',
     borderBottomColor: '#020202',

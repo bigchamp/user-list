@@ -3,13 +3,13 @@ import {FlatList, FlatListProps, View} from 'react-native';
 
 import {styles} from './styles';
 
-export const List = ({data, renderItem}: FlatListProps<any>) => {
+export const List = (props: FlatListProps<any>) => {
   return (
     <View style={styles.container}>
       <FlatList
-        keyExtractor={({}, index) => String(index)}
-        data={data}
-        renderItem={renderItem}
+        style={styles.flatList}
+        keyExtractor={item => String(item.login?.uuid)}
+        {...props}
       />
     </View>
   );

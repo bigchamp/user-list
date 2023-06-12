@@ -1,24 +1,27 @@
-import React from 'react';
-import {Image, Pressable, Text, View} from 'react-native';
-import {styles} from './styles';
+import React, {memo} from 'react';
+import FastImage from 'react-native-fast-image';
+import {Pressable, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-export const Item = ({item}: any) => {
+import {styles} from './styles';
+
+export const Item = memo(({item}: any) => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
   const onPressItem = () => {
     navigation?.navigate('Details', {
-      uuid: item.login.uuid,
+      uuid: item.login?.uuid,
     });
   };
 
   return (
-    <Pressable key={item.login.uuid} onPress={onPressItem} style={styles.item}>
-      <Image
+    <Pressable key={item.login?.uuid} onPress={onPressItem} style={styles.item}>
+      <FastImage
         style={styles.avatar}
         source={{
-          uri: item.picture.thumbnail,
+          uri: item?.picture?.thumbnail,
+          priority: FastImage.priority.normal,
         }}
       />
       <View>
@@ -30,4 +33,4 @@ export const Item = ({item}: any) => {
       </View>
     </Pressable>
   );
-};
+});

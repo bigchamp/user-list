@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     paddingTop: 0,
-    paddingHorizontal: 12,
     marginTop: StatusBar.currentHeight || 0,
   },
+  flatList: {paddingHorizontal: 12},
 });
